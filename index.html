@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- SEO Metadata -->
+  <title>Vyom 3D Lok - Futuristic Gaming, Animation & Creator Platform</title>
+  <meta name="description" content="Enter the digital universe of Vyom 3D Lok. A cinematic ecosystem for high-fidelity 3D animations, future games showcase, creator portfolios, and dynamic developer community brawls.">
+  <meta name="keywords" content="Vyom 3D Lok, Gaming studio, Anime streaming, Creator portfolio, Unreal Engine, Blender 3D, Cyberpunk RPG">
+  <meta name="author" content="Vyom Studios">
+  
+  <!-- Favicon / Logo Icon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2300bcd4%22/></svg>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Background Space Canvas -->
+  <div id="particles-bg-container">
+    <canvas id="particles-canvas"></canvas>
+  </div>
+
+  <!-- Header & Navigation Bar -->
+  <header>
+    <nav class="navbar" id="main-navigation">
+      <a href="#home" class="nav-logo" id="logo-home-link">
+        <div class="logo-icon">V</div>
+        <span>Vyom 3D Lok</span>
+      </a>
+
+      <!-- Global Search Autocomplete Bar -->
+      <div id="global-search-container" style="position: relative; width: 260px;">
+        <input type="text" class="search-input" id="global-search-input" placeholder="Search the universe..." onkeyup="window.searchGlobal(this.value)" style="width: 100%; font-size: 0.8rem; padding: 6px 14px;">
+        <div id="global-search-results" class="glass" style="display: none; position: absolute; top: 105%; left: 0; width: 100%; max-height: 250px; overflow-y: auto; z-index: 101; background: rgba(7, 17, 31, 0.95); border: 1px solid var(--border-glass); border-radius: 8px;"></div>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#home" id="nav-item-home" class="active">Home</a></li>
+        <li><a href="#animations" id="nav-item-animations">Animations</a></li>
+        <li><a href="#games" id="nav-item-games">Games</a></li>
+        <li><a href="#community" id="nav-item-community">Community</a></li>
+        <li><a href="#blogs" id="nav-item-blogs">Chronicles</a></li>
+      </ul>
+
+      <!-- User Auth State Hooks -->
+      <div class="nav-actions" id="auth-nav-wrapper">
+        <!-- Dynamically loaded by app.js -->
+        <button class="btn-login" id="btn-login-nav-trigger">Login / Join</button>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="burger-menu" id="hamburger-toggle" onclick="window.toggleMobileNav()" aria-label="Toggle mobile navigation">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <aside class="mobile-nav-panel" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="#home" onclick="window.toggleMobileNav()">Home</a></li>
+      <li><a href="#animations" onclick="window.toggleMobileNav()">Animations</a></li>
+      <li><a href="#games" onclick="window.toggleMobileNav()">Games</a></li>
+      <li><a href="#community" onclick="window.toggleMobileNav()">Community</a></li>
+      <li><a href="#blogs" onclick="window.toggleMobileNav()">Chronicles</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main View Container -->
+  <main id="app-content">
+    <!-- Dynamic SPA content will render here -->
+  </main>
+
+  <!-- Premium Global Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="nav-logo" style="margin-bottom: 15px;">
+          <div class="logo-icon">V</div>
+          <span>Vyom 3D Lok</span>
+        </div>
+        <p>A next-generation entertainment workspace tailored for digital animators, visual effect editors, indie gaming developers, and cosmic storytellers.</p>
+        <div class="social-icons">
+          <a href="#" class="social-link" aria-label="Follow us on Twitter">T</a>
+          <a href="#" class="social-link" aria-label="Join our Discord">D</a>
+          <a href="#" class="social-link" aria-label="View our GitHub">G</a>
+          <a href="#" class="social-link" aria-label="Watch our YouTube">Y</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#animations">Animations</a></li>
+          <li><a href="#games">Games Showcase</a></li>
+          <li><a href="#community">Forums community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">AI Resources</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="event.preventDefault(); window.openAiThumbnailModal();">Thumbnail synthesis</a></li>
+          <li><a href="#" onclick="event.preventDefault(); window.toggleAiDrawer();">AI Navigator bot</a></li>
+          <li><a href="#dashboard">Sentinel control</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Policies</h4>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Protocol</a></li>
+          <li><a href="#">Creator Licensing</a></li>
+          <li><a href="#">Monetization Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Vyom 3D Lok. Engineered for immersive gaming and rendering orbits.</span>
+      <span>Temporary Brand Name: Vyom 3D Lok</span>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       AI ASSISTANT CHAT DRAWER
+       ========================================================================== */ -->
+  <button class="ai-assistant-toggle-btn" id="btn-ai-toggle" onclick="window.toggleAiDrawer()" aria-label="Open AI Assistant Chat">
+    <span>🤖</span>
+  </button>
+
+  <div class="ai-drawer-container glass" id="ai-drawer">
+    <div class="ai-drawer-header">
+      <div class="ai-header-info">
+        <div class="ai-bot-avatar">🤖</div>
+        <div>
+          <div class="ai-bot-name">Vyom Navigator</div>
+          <div class="ai-bot-status">System AI Online</div>
+        </div>
+      </div>
+      <button class="btn-close-ai" onclick="window.toggleAiDrawer()">✖</button>
+    </div>
+    <div class="ai-drawer-messages" id="ai-chat-messages">
+      <div class="ai-msg bot">
+        Greetings, Sentinel. I am the Vyom AI Navigator. Ask me to recommend animations, check game logs, or suggest how to earn XP!
+      </div>
+    </div>
+    <div class="ai-msg-suggestions">
+      <button class="btn-ai-suggest" onclick="window.aiSuggestedPrompt('recommend a video')">Suggest Video</button>
+      <button class="btn-ai-suggest" onclick="window.aiSuggestedPrompt('check game playtests')">Check Games</button>
+      <button class="btn-ai-suggest" onclick="window.aiSuggestedPrompt('how do I earn XP')">How to earn XP</button>
+    </div>
+    <div class="ai-drawer-input-row">
+      <input type="text" class="ai-chat-input" id="ai-chat-val" placeholder="Prompt navigator..." onkeypress="if(event.key === 'Enter') window.sendAiMessage()">
+      <button class="btn-ai-send" onclick="window.sendAiMessage()">▶</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODALS OVERLAYS SYSTEM
+       ========================================================================== */ -->
+
+  <!-- 1. AUTH MODAL (LOGIN & REGISTRATION) -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card glass glow-purple-hover">
+      <button class="modal-close-btn" onclick="window.closeModal('auth-modal')">✖</button>
+      <h2 class="modal-heading" id="auth-modal-title">Sentinel Verification</h2>
+      
+      <form onsubmit="event.preventDefault(); window.handleLoginSubmit(this);">
+        <div id="auth-fields-container">
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-input" id="login-username" required placeholder="Enter sentinel tag...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Encryption Key (Password)</label>
+            <input type="password" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="form-extra-row">
+          <label class="remember-me-label">
+            <input type="checkbox" checked> Remember coordinate
+          </label>
+          <a href="#" class="forgot-link" onclick="event.preventDefault(); showToast('Reset code dispatched to local nodes', 'success');">Forgot Key?</a>
+        </div>
+
+        <button type="submit" class="btn-modal-submit" id="auth-submit-btn">Access Platform</button>
+      </form>
+
+      <div class="social-login-grid">
+        <button class="btn-social-auth" onclick="showToast('Google credentials verified', 'success')">Google</button>
+        <button class="btn-social-auth" onclick="showToast('Discord credentials verified', 'success')">Discord</button>
+      </div>
+
+      <div class="modal-switch-prompt" id="auth-switch-prompt">
+        First time here? <span class="modal-switch-link" onclick="window.switchAuthView('signup')">Register here</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. UPLOAD VIDEO MODAL -->
+  <div class="modal-overlay" id="upload-modal">
+    <div class="modal-card glass glow-cyan-hover">
+      <button class="modal-close-btn" onclick="window.closeModal('upload-modal')">✖</button>
+      <h2 class="modal-heading">Publish Animation Frame</h2>
+      
+      <form onsubmit="event.preventDefault(); window.handleVideoUpload(this);">
+        <div class="form-group">
+          <label class="form-label">Video Title</label>
+          <input type="text" class="form-input" id="up-title" placeholder="e.g. Chrono Shift: Keyframe test" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-input" id="up-category">
+            <option value="Anime">Anime</option>
+            <option value="Gaming edits">Gaming edit</option>
+            <option value="Cinematic">Cinematic</option>
+            <option value="Tutorials">Tutorial</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description & Render Settings</label>
+          <textarea class="form-input" id="up-desc" style="height: 100px; resize: none;" placeholder="Shader node details, rendering engines..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Thumbnail Graphic</label>
+          <div class="drag-drop-area" onclick="window.openAiThumbnailModal()">
+            <div class="drag-drop-icon">🖼️</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Click here to generate a premium graphic with our AI tool, or select locally.</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-modal-submit">Upload Frame</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. AI THUMBNAIL GENERATOR MODAL -->
+  <div class="modal-overlay" id="ai-thumbnail-modal">
+    <div class="modal-card glass glow-purple-hover" style="max-width: 450px;">
+      <button class="modal-close-btn" onclick="window.closeModal('ai-thumbnail-modal')">✖</button>
+      <h2 class="modal-heading">AI Graphic Synthesizer</h2>
+      
+      <div class="ai-thumbnail-modal-body">
+        <div class="form-group">
+          <label class="form-label">Visual Synthesis Prompt</label>
+          <input type="text" class="form-input" id="ai-prompt-input" placeholder="e.g. Cyberpunk anime girl looking at a green nebula planet...">
+        </div>
+        
+        <button class="btn-primary" onclick="window.generateAiThumbnail()" style="width: 100%; justify-content: center;">
+          ⚡ Synthesize Graphic
+        </button>
+
+        <div class="password-strength-container" style="height: 6px; margin-top: 5px;">
+          <div class="password-strength-fill" id="ai-thumb-progress" style="width: 0%;"></div>
+        </div>
+
+        <div class="thumbnail-preview-box">
+          <img src="" id="ai-thumb-preview-img" class="thumbnail-preview-img" alt="generated thumbnail preview">
+          <div id="ai-thumb-placeholder" class="thumbnail-placeholder-txt">Visual asset render screen</div>
+        </div>
+
+        <button class="btn-modal-submit" onclick="window.saveGeneratedThumbnail()">Save Preview</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. BLOG WRITER MODAL -->
+  <div class="modal-overlay" id="blog-editor-modal">
+    <div class="modal-card glass glow-cyan-hover" style="max-width: 600px;">
+      <button class="modal-close-btn" onclick="window.closeModal('blog-editor-modal')">✖</button>
+      <h2 class="modal-heading">Create Chronicle Log</h2>
+      
+      <form onsubmit="event.preventDefault(); window.handleBlogSubmit(this);">
+        <div class="form-group">
+          <label class="form-label">Article Title</label>
+          <input type="text" class="form-input" id="blog-up-title" placeholder="e.g. Future of Unreal Engine Rendering..." required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Chronicle Category</label>
+          <select class="form-input" id="blog-up-category">
+            <option value="Animation">Animation</option>
+            <option value="AI">AI</option>
+            <option value="Gaming">Gaming</option>
+            <option value="VFX">VFX</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Log Content (Markdown supported)</label>
+          <textarea class="form-input" id="blog-up-content" style="height: 200px; resize: none; font-family: monospace;" placeholder="Use ## headers, lists, bold text..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-modal-submit">Publish Log</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. GAME TRAILER / DEMO MODAL -->
+  <div class="modal-overlay" id="trailer-modal">
+    <div class="modal-card glass glow-cyan-hover" style="max-width: 700px; padding: 20px;">
+      <button class="modal-close-btn" onclick="window.closeTrailerModal()">✖</button>
+      <h2 class="modal-heading" style="margin-bottom: 15px; font-size: 1.1rem; text-align: left;">Vyom Playtest Trailer</h2>
+      <div id="trailer-video-container" style="background: #000; aspect-ratio: 16/9; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <!-- Loaded dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Center -->
+  <div id="toast-holder" class="toast-container"></div>
+
+  <!-- JavaScript Modules Import -->
+  <script src="js/data.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
